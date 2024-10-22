@@ -1,2 +1,2 @@
 #!/bin/bash 
-            npx create-react-app myapp2
+            mkdir text.txt
