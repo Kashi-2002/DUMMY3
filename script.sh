@@ -1,7 +1,0 @@
-```bash
-mkdir public/images src/assets src/assets/styles src/components src/pages
-touch public/images/homepage-background.jpg public/images/product-image-1.jpg public/images/product-image-2.jpg public/images/product-image-3.jpg public/images/product-image-4.jpg public/images/small-product-image-1.jpg public/images/small-product-image-2.jpg public/images/small-product-image-3.jpg public/images/small-product-image-4.jpg public/images/small-product-image-5.jpg public/images/small-product-image-6.jpg public/images/small-product-image-7.jpg public/images/small-product-image-8.jpg public/images/customer-image-1.jpg public/images/customer-image-2.jpg public/images/customer-image-3.jpg
-touch src/assets/styles/global.css src/assets/styles/homepage.css src/assets/styles/product.css src/assets/styles/category.css src/assets/styles/featured.css src/assets/styles/testimonials.css src/assets/styles/footer.css
-touch src/components/CategoryCard.js src/components/FeaturedProduct.js src/components/ProductCard.js src/components/TestimonialCard.js src/components/Footer.js src/components/Header.js
-touch src/pages/Homepage.js src/pages/Products.js src/pages/Categories.js src/pages/Featured.js src/pages/Testimonials.js src/pages/About.js src/pages/Contact.js
-```
