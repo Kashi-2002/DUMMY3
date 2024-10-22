@@ -19,6 +19,7 @@ jobs:
           cd myapp
       - name: Run Bash script
         run: |
+          cd myapp
           chmod +x ./script.sh
           ./script.sh
       - name: Git commit changes
