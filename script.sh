@@ -1,110 +1,127 @@
 ```bash
-mkdir public/images public/images/background public/images/recommendation public/images/patterns src/assets src/assets/styles src/components src/components/common src/components/pages src/components/pages/Home src/components/pages/About src/components/pages/Contact src/components/pages/Products src/config
-
-touch public/images/background/sofa.jpg public/images/recommendation/product1.jpg public/images/recommendation/product2.jpg public/images/recommendation/product3.jpg public/images/recommendation/product4.jpg public/images/recommendation/product5.jpg public/images/recommendation/product6.jpg public/images/patterns/wooden-texture.jpg
-
-touch src/assets/styles/global.css src/assets/styles/Home.css src/assets/styles/About.css src/assets/styles/Contact.css
-
-touch src/components/common/Button.js src/components/common/Card.js src/components/common/Footer.js src/components/common/Header.js src/components/common/Layout.js src/components/common/Navbar.js
-
-touch src/components/pages/Home/index.js src/components/pages/About/index.js src/components/pages/Contact/index.js src/components/pages/Products/index.js src/components/pages/Products/ProductCard.js src/components/pages/Products/ProductGrid.js
-
-touch src/config/routes.js src/config/store.js
+mkdir public/images public/images/background public/images/recommendation public/images/texture src/components src/pages src/routes src/utils src/styles src/assets
+touch public/images/background/sofa.jpg public/images/recommendation/product1.jpg public/images/recommendation/product2.jpg public/images/recommendation/product3.jpg public/images/recommendation/product4.jpg public/images/recommendation/product5.jpg public/images/recommendation/product6.jpg public/images/texture/wooden.jpg src/components/Headline.js src/components/Headline.css src/components/SubHeadline.js src/components/SubHeadline.css src/components/CallToAction.js src/components/CallToAction.css src/components/CategoryDisplay.js src/components/CategoryDisplay.css src/components/Footer.js src/components/Footer.css src/pages/Home.js src/pages/Home.css src/pages/About.js src/pages/About.css src/pages/Contact.js src/pages/Contact.css src/routes/Route.js src/utils/constants.js src/styles/global.css src/assets/fonts.css
 ```
-```bash
-#!/bin/bash
+echo "import React from 'react';
 
-# Create CSS files
-echo "/* global.css */" > src/assets/styles/global.css
-echo "* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+const Headline = () => {
+  return (
+    <h1 className='headline'>Elevate Your Space with Minimalist Wooden Furniture</h1>
+  );
+};
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #F5F5F5;
-}
+export default Headline;" > src/components/Headline.js
 
-a {
-  text-decoration: none;
-  color: #969696;
-}" >> src/assets/styles/global.css
-
-echo "/* Home.css */" > src/assets/styles/Home.css
-echo ".home-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.headline {
-  font-size: 36px;
+echo ".headline {
+  font-size: 48px;
   font-weight: bold;
-  color: #969696;
-  margin-bottom: 10px;
-}
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}" > src/components/Headline.css
 
-.sub-headline {
+echo "import React from 'react';
+
+const SubHeadline = () => {
+  return (
+    <p className='sub-headline'>Discover our curated collection of handcrafted wooden furniture for the modern home</p>
+  );
+};
+
+export default SubHeadline;" > src/components/SubHeadline.js
+
+echo ".sub-headline {
   font-size: 18px;
   color: #666;
-  margin-bottom: 20px;
-}
+  text-align: center;
+  margin-bottom: 40px;
+}" > src/components/SubHeadline.css
 
-.cta-button {
-  background-color: #969696;
-  color: #FFFFFF;
+echo "import React from 'react';
+
+const CallToAction = () => {
+  return (
+    <button className='cta'>Explore Our Collection</button>
+  );
+};
+
+export default CallToAction;" > src/components/CallToAction.js
+
+echo ".cta {
+  background-color: #333;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   font-size: 18px;
   cursor: pointer;
 }
 
-.cta-button:hover {
-  background-color: #666;
-}" >> src/assets/styles/Home.css
+.cta:hover {
+  background-color: #555;
+}" > src/components/CallToAction.css
 
-echo "/* About.css */" > src/assets/styles/About.css
-echo ".about-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}" >> src/assets/styles/About.css
-
-echo "/* Contact.css */" > src/assets/styles/Contact.css
-echo ".contact-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}" >> src/assets/styles/Contact.css
-
-# Create Button.js
-echo "// Button.js" > src/components/common/Button.js
 echo "import React from 'react';
 
-const Button = ({ children, onClick }) => {
+const CategoryDisplay = () => {
   return (
-    <button onClick={onClick}>{children}</button>
+    <div className='category-display'>
+      <div className='category-card'>
+        <img src='public/images/recommendation/product1.jpg' alt='Product 1' />
+        <h2>Sofa</h2>
+      </div>
+      <div className='category-card'>
+        <img src='public/images/recommendation/product2.jpg' alt='Product 2' />
+        <h2>Bed</h2>
+      </div>
+      <div className='category-card'>
+        <img src='public/images/recommendation/product3.jpg' alt='Product 3' />
+        <h2>Almirah</h2>
+      </div>
+      <div className='category-card'>
+        <img src='public/images/recommendation/product4.jpg' alt='Product 4' />
+        <h2>Chair</h2>
+      </div>
+      <div className='category-card'>
+        <img src='public/images/recommendation/product5.jpg' alt='Product 5' />
+        <h2>Wardrobe</h2>
+      </div>
+      <div className='category-card'>
+        <img src='public/images/recommendation/product6.jpg' alt='Product 6' />
+        <h2>Table</h2>
+      </div>
+    </div>
   );
 };
 
-export default Button;" >> src/components/common/Button.js
+export default CategoryDisplay;" > src/components/CategoryDisplay.js
 
-# Create Card.js
-echo "// Card.js" > src/components/common/Card.js
-echo "import React from 'react';
+echo ".category-display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  margin-bottom: 40px;
+}
 
-const Card = ({ children }) => {
-  return (
-    <div className='card'>{children}</div>
-  );
-};
+.category-card {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-export default Card;" >> src/components/common/Card.js
+.category-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
 
-# Create Footer.js
-echo "// Footer.js" > src/components/common/Footer.js
+.category-card h2 {
+  font-size: 18px;
+  margin-top: 10px;
+}" > src/components/CategoryDisplay.css
+
 echo "import React from 'react';
 
 const Footer = () => {
@@ -115,219 +132,122 @@ const Footer = () => {
         <a href='#'>Terms of Service</a>
         <a href='#'>Contact Us</a>
       </div>
-      <div className='social-media-icons'>
-        <i className='fa fa-facebook'></i>
-        <i className='fa fa-twitter'></i>
-        <i className='fa fa-instagram'></i>
+      <div className='footer-social'>
+        <a href='#'><i className='fa fa-facebook'></i></a>
+        <a href='#'><i className='fa fa-twitter'></i></a>
+        <a href='#'><i className='fa fa-instagram'></i></a>
       </div>
+      <p>&copy; 2023 Furniture Website</p>
     </footer>
   );
 };
 
-export default Footer;" >> src/components/common/Footer.js
+export default Footer;" > src/components/Footer.js
 
-# Create Header.js
-echo "// Header.js" > src/components/common/Header.js
+echo ".footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #fff;
+  margin-right: 20px;
+}
+
+.footer-social {
+  margin-bottom: 20px;
+}
+
+.footer-social a {
+  color: #fff;
+  margin-right: 20px;
+}
+
+.footer-social i {
+  font-size: 24px;
+}" > src/components/Footer.css
+
 echo "import React from 'react';
+import Headline from '../components/Headline';
+import SubHeadline from '../components/SubHeadline';
+import CallToAction from '../components/CallToAction';
+import CategoryDisplay from '../components/CategoryDisplay';
+import Footer from '../components/Footer';
 
-const Header = () => {
+const Home = () => {
   return (
-    <header className='header'>
-      <nav className='navbar'>
-        <ul>
-          <li><a href='#'>Home</a></li>
-          <li><a href='#'>About</a></li>
-          <li><a href='#'>Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-  );
-};
-
-export default Header;" >> src/components/common/Header.js
-
-# Create Layout.js
-echo "// Layout.js" > src/components/common/Layout.js
-echo "import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
-
-const Layout = ({ children }) => {
-  return (
-    <div className='layout'>
-      <Header />
-      {children}
+    <div className='home'>
+      <Headline />
+      <SubHeadline />
+      <CallToAction />
+      <CategoryDisplay />
       <Footer />
     </div>
   );
 };
 
-export default Layout;" >> src/components/common/Layout.js
+export default Home;" > src/pages/Home.js
 
-# Create Navbar.js
-echo "// Navbar.js" > src/components/common/Navbar.js
-echo "import React from 'react';
+echo ".home {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}" > src/pages/Home.css
 
-const Navbar = () => {
-  return (
-    <nav className='navbar'>
-      <ul>
-        <li><a href='#'>Home</a></li>
-        <li><a href='#'>About</a></li>
-        <li><a href='#'>Contact</a></li>
-      </ul>
-    </nav>
-  );
-};
+echo "@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+}
 
-export default Navbar;" >> src/components/common/Navbar.js
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-# Create Home/index.js
-echo "// Home/index.js" > src/components/pages/Home/index.js
-echo "import React from 'react';
-import Layout from '../../common/Layout';
-import Button from '../../common/Button';
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+}
 
-const Home = () => {
-  return (
-    <Layout>
-      <div className='home-container'>
-        <h1 className='headline'>Elevate Your Space with Minimalist Wooden Furniture</h1>
-        <p className='sub-headline'>Discover our curated collection of handcrafted wooden furniture for the modern home</p>
-        <Button className='cta-button'>Explore Our Collection</Button>
-      </div>
-    </Layout>
-  );
-};
+a {
+  text-decoration: none;
+  color: #333;
+}
 
-export default Home;" >> src/components/pages/Home/index.js
+a:hover {
+  color: #555;
+}
 
-# Create About/index.js
-echo "// About/index.js" > src/components/pages/About/index.js
-echo "import React from 'react';
-import Layout from '../../common/Layout';
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-const About = () => {
-  return (
-    <Layout>
-      <div className='about-container'>
-        <h1>About Us</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-      </div>
-    </Layout>
-  );
-};
+p {
+  margin-bottom: 20px;
+}
 
-export default About;" >> src/components/pages/About/index.js
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}" > src/styles/global.css
 
-# Create Contact/index.js
-echo "// Contact/index.js" > src/components/pages/Contact/index.js
-echo "import React from 'react';
-import Layout from '../../common/Layout';
-
-const Contact = () => {
-  return (
-    <Layout>
-      <div className='contact-container'>
-        <h1>Contact Us</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-      </div>
-    </Layout>
-  );
-};
-
-export default Contact;" >> src/components/pages/Contact/index.js
-
-# Create Products/index.js
-echo "// Products/index.js" > src/components/pages/Products/index.js
-echo "import React from 'react';
-import Layout from '../../common/Layout';
-import ProductGrid from './ProductGrid';
-
-const Products = () => {
-  return (
-    <Layout>
-      <div className='products-container'>
-        <h1>Our Products</h1>
-        <ProductGrid />
-      </div>
-    </Layout>
-  );
-};
-
-export default Products;" >> src/components/pages/Products/index.js
-
-# Create ProductCard.js
-echo "// ProductCard.js" > src/components/pages/Products/ProductCard.js
-echo "import React from 'react';
-
-const ProductCard = ({ product }) => {
-  return (
-    <div className='product-card'>
-      <img src={product.image} alt={product.name} />
-      <h2>{product.name}</h2>
-      <p>{product.description}</p>
-      <p>Price: {product.price}</p>
-    </div>
-  );
-};
-
-export default ProductCard;" >> src/components/pages/Products/ProductCard.js
-
-# Create ProductGrid.js
-echo "// ProductGrid.js" > src/components/pages/Products/ProductGrid.js
-echo "import React from 'react';
-import ProductCard from './ProductCard';
-
-const products = [
-  { id: 1, name: 'Product 1', description: 'Lorem ipsum dolor sit amet', price: 100, image: 'product1.jpg' },
-  { id: 2, name: 'Product 2', description: 'Lorem ipsum dolor sit amet', price: 200, image: 'product2.jpg' },
-  { id: 3, name: 'Product 3', description: 'Lorem ipsum dolor sit amet', price: 300, image: 'product3.jpg' },
-];
-
-const ProductGrid = () => {
-  return (
-    <div className='product-grid'>
-      {products.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
-    </div>
-  );
-};
-
-export default ProductGrid;" >> src/components/pages/Products/ProductGrid.js
-
-# Create routes.js
-echo "// routes.js" > src/config/routes.js
-echo "import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from '../components/pages/Home';
-import About from '../components/pages/About';
-import Contact from '../components/pages/Contact';
-import Products from '../components/pages/Products';
-
-const Routes = () => {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/about' component={About} />
-        <Route path='/contact' component={Contact} />
-        <Route path='/products' component={Products} />
-      </Switch>
-    </BrowserRouter>
-  );
-};
-
-export default Routes;" >> src/config/routes.js
-
-# Create store.js
-echo "// store.js" > src/config/store.js
-echo "import { createStore } from 'redux';
-
-const initialState = {};
-
-const store = createStore((state = initialState) => state);
-
-export default store;" >> src/config/store.js
+echo "@font-face {
+  font-family: 'Open Sans';
+  src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+}" > src/assets/fonts.css
 ```
