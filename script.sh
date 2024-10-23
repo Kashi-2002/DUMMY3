@@ -2,6 +2,7 @@
 mkdir public/images public/images/background public/images/recommendation public/images/texture src/components src/pages src/routes src/utils src/styles src/assets 
 touch public/images/background/sofa.jpg public/images/recommendation/product1.jpg public/images/recommendation/product2.jpg public/images/recommendation/product3.jpg public/images/recommendation/product4.jpg public/images/recommendation/product5.jpg public/images/recommendation/product6.jpg public/images/texture/wooden.jpg src/components/Headline.js src/components/Headline.css src/components/SubHeadline.js src/components/SubHeadline.css src/components/CallToAction.js src/components/CallToAction.css src/components/CategoryDisplay.js src/components/CategoryDisplay.css src/components/Footer.js src/components/Footer.css src/pages/Home.js src/pages/Home.css src/pages/About.js src/pages/About.css src/pages/Contact.js src/pages/Contact.css src/routes/Route.js src/utils/constants.js src/styles/global.css src/assets/fonts.css
 ```
+```bash
 echo "import React from 'react';
 
 const Headline = () => {
