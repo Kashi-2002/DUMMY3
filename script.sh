@@ -4,7 +4,7 @@ touch public/images/background/sofa.jpg public/images/background/wooden-texture.
 touch src/components/common/Button.js src/components/common/Card.js src/components/common/Footer.js src/components/common/Header.js src/components/common/Icon.js src/components/common/Layout.js src/components/common/Navbar.js
 touch src/components/homepage/CategoryDisplay.js src/components/homepage/Headline.js src/components/homepage/Image.js src/components/homepage/Recommendation.js src/components/homepage/SubHeadline.js
 touch src/components/pages/About.js src/components/pages/Contact.js src/components/pages/Home.js src/components/pages/Products.js
-touch src/css/about.css src/css/contact.css src/css/home.css src/css/products.css src/css/common.css
+touch src/css/about.css src/css/contact.css src/css/home.css src/css/products.css src/css/common.css 
 ```
 ```bash
 #!/bin/bash
