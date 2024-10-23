@@ -1,360 +1,232 @@
 ```bash
-mkdir public/images src/components src/containers src/pages/Home src/pages/About src/pages/Contact src/pages/Product src/pages/NotFound src/routes src/utils
-touch public/images/homepage-background.jpg public/images/featured-section.jpg public/images/recommendation-section-1.jpg public/images/recommendation-section-2.jpg public/images/recommendation-section-3.jpg public/images/recommendation-section-4.jpg public/images/category-sofas.jpg public/images/category-beds.jpg public/images/category-almirahs.jpg public/images/category-chairs.jpg public/images/category-wardrobes.jpg public/images/category-tables.jpg src/components/Header.js src/components/Footer.js src/components/Button.js src/components/CategoryCard.js src/components/ProductCard.js src/containers/Home.js src/containers/About.js src/containers/Contact.js src/containers/Product.js src/pages/Home/index.js src/pages/Home/styles.css src/pages/About/index.js src/pages/About/styles.css src/pages/Contact/index.js src/pages/Contact/styles.css src/pages/Product/index.js src/pages/Product/styles.css src/pages/NotFound/index.js src/pages/NotFound/styles.css src/routes/AppRoutes.js src/utils/api.js src/utils/constants.js src/utils/index.js src/App.css
+mkdir public/images public/images/background public/images/recommendation public/images/pattern src/assets src/assets/styles src/assets/styles/pages src/components src/components/common src/components/homepage src/components/about src/components/contact src/components/category src/components/product src/components/cart src/components/checkout src/components/thankyou src/pages src/routes src/store src/store/actions src/store/reducers src/utils
+touch public/images/background/sofa.jpg public/images/recommendation/product1.jpg public/images/recommendation/product2.jpg public/images/recommendation/product3.jpg public/images/recommendation/product4.jpg public/images/recommendation/product5.jpg public/images/recommendation/product6.jpg public/images/pattern/wooden-texture.jpg src/assets/styles/global.css src/assets/styles/pages/homepage.css src/assets/styles/pages/about.css src/assets/styles/pages/contact.css src/assets/styles/pages/category.css src/assets/styles/pages/product.css src/assets/styles/pages/cart.css src/assets/styles/pages/checkout.css src/assets/styles/pages/thankyou.css src/components/common/Navbar.js src/components/common/Footer.js src/components/common/Button.js src/components/common/ProductCard.js src/components/common/CategoryCard.js src/components/homepage/HeroSection.js src/components/homepage/CategorySection.js src/components/homepage/RecommendationSection.js src/components/homepage/TestimonialSection.js src/components/about/AboutSection.js src/components/about/TeamSection.js src/components/contact/ContactForm.js src/components/contact/MapSection.js src/components/category/CategoryGrid.js src/components/category/CategoryFilter.js src/components/product/ProductDetails.js src/components/product/ProductReviews.js src/components/cart/CartTable.js src/components/cart/CartSummary.js src/components/checkout/CheckoutForm.js src/components/checkout/PaymentSection.js src/components/thankyou/ThankyouMessage.js src/pages/Homepage.js src/pages/About.js src/pages/Contact.js src/pages/Category.js src/pages/Product.js src/pages/Cart.js src/pages/Checkout.js src/pages/Thankyou.js src/routes/index.js src/routes/private.js src/store/actions/productActions.js src/store/actions/cartActions.js src/store/reducers/productReducer.js src/store/reducers/cartReducer.js src/store/store.js src/utils/api.js src/utils/constants.js
 ```
 ```bash
 #!/bin/bash
 
-# Create React components
+# Homepage.js
 echo "import React from 'react';
-import './Header.css';
+import Navbar from '../components/common/Navbar';
+import HeroSection from '../components/homepage/HeroSection';
+import CategorySection from '../components/homepage/CategorySection';
+import RecommendationSection from '../components/homepage/RecommendationSection';
+import TestimonialSection from '../components/homepage/TestimonialSection';
+import Footer from '../components/common/Footer';
 
-const Header = () => {
+const Homepage = () => {
   return (
-    <header>
-      <nav>
-        <ul>
-          <li><a href='/'>Home</a></li>
-          <li><a href='/about'>About</a></li>
-          <li><a href='/contact'>Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div>
+      <Navbar />
+      <HeroSection />
+      <CategorySection />
+      <RecommendationSection />
+      <TestimonialSection />
+      <Footer />
+    </div>
   );
 };
 
-export default Header;" > src/components/Header.js
+export default Homepage;" > src/pages/Homepage.js
 
+# HeroSection.js
 echo "import React from 'react';
-import './Footer.css';
+import './homepage.css';
+
+const HeroSection = () => {
+  return (
+    <div className='hero-section'>
+      <h1>Elevate Your Space with Minimalist Wooden Furniture</h1>
+      <p>Discover our curated collection of handcrafted wooden furniture for the modern home</p>
+      <button>Explore Our Collection</button>
+    </div>
+  );
+};
+
+export default HeroSection;" > src/components/homepage/HeroSection.js
+
+# CategorySection.js
+echo "import React from 'react';
+import CategoryCard from '../common/CategoryCard';
+import './homepage.css';
+
+const CategorySection = () => {
+  return (
+    <div className='category-section'>
+      <h2>Categories</h2>
+      <div className='category-grid'>
+        <CategoryCard title='Sofa' />
+        <CategoryCard title='Bed' />
+        <CategoryCard title='Almirah' />
+        <CategoryCard title='Chair' />
+        <CategoryCard title='Wardrobe' />
+        <CategoryCard title='Table' />
+      </div>
+    </div>
+  );
+};
+
+export default CategorySection;" > src/components/homepage/CategorySection.js
+
+# RecommendationSection.js
+echo "import React from 'react';
+import ProductCard from '../common/ProductCard';
+import './homepage.css';
+
+const RecommendationSection = () => {
+  return (
+    <div className='recommendation-section'>
+      <h2>Recommended Products</h2>
+      <div className='product-grid'>
+        <ProductCard title='Product 1' />
+        <ProductCard title='Product 2' />
+        <ProductCard title='Product 3' />
+        <ProductCard title='Product 4' />
+        <ProductCard title='Product 5' />
+        <ProductCard title='Product 6' />
+      </div>
+    </div>
+  );
+};
+
+export default RecommendationSection;" > src/components/homepage/RecommendationSection.js
+
+# TestimonialSection.js
+echo "import React from 'react';
+import './homepage.css';
+
+const TestimonialSection = () => {
+  return (
+    <div className='testimonial-section'>
+      <h2>What Our Customers Say</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+    </div>
+  );
+};
+
+export default TestimonialSection;" > src/components/homepage/TestimonialSection.js
+
+# Navbar.js
+echo "import React from 'react';
+import './navbar.css';
+
+const Navbar = () => {
+  return (
+    <nav>
+      <ul>
+        <li><a href='#'>Home</a></li>
+        <li><a href='#'>About</a></li>
+        <li><a href='#'>Contact</a></li>
+      </ul>
+    </nav>
+  );
+};
+
+export default Navbar;" > src/components/common/Navbar.js
+
+# Footer.js
+echo "import React from 'react';
+import './footer.css';
 
 const Footer = () => {
   return (
     <footer>
-      <p>&copy; 2023 Furniture Store</p>
+      <p>&copy; 2023 Minimalist Wooden Furniture</p>
       <ul>
-        <li><a href='/'>Home</a></li>
-        <li><a href='/about'>About</a></li>
-        <li><a href='/contact'>Contact</a></li>
+        <li><a href='#'>Privacy Policy</a></li>
+        <li><a href='#'>Terms of Service</a></li>
+        <li><a href='#'>Contact Us</a></li>
       </ul>
     </footer>
   );
 };
 
-export default Footer;" > src/components/Footer.js
+export default Footer;" > src/components/common/Footer.js
 
+# CategoryCard.js
 echo "import React from 'react';
-import './Button.css';
+import './category-card.css';
 
-const Button = ({ children, onClick }) => {
+const CategoryCard = ({ title }) => {
   return (
-    <button onClick={onClick}>
-      {children}
-    </button>
-  );
-};
-
-export default Button;" > src/components/Button.js
-
-echo "import React from 'react';
-import './CategoryCard.css';
-
-const CategoryCard = ({ image, title }) => {
-  return (
-    <div>
-      <img src={image} alt={title} />
-      <h2>{title}</h2>
+    <div className='category-card'>
+      <h3>{title}</h3>
     </div>
   );
 };
 
-export default CategoryCard;" > src/components/CategoryCard.js
+export default CategoryCard;" > src/components/common/CategoryCard.js
 
+# ProductCard.js
 echo "import React from 'react';
-import './ProductCard.css';
+import './product-card.css';
 
-const ProductCard = ({ image, title, price }) => {
+const ProductCard = ({ title }) => {
   return (
-    <div>
-      <img src={image} alt={title} />
-      <h2>{title}</h2>
-      <p>\${price}</p>
+    <div className='product-card'>
+      <h3>{title}</h3>
     </div>
   );
 };
 
-export default ProductCard;" > src/components/ProductCard.js
+export default ProductCard;" > src/components/common/ProductCard.js
 
-# Create React containers
-echo "import React from 'react';
-import './Home.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import CategoryCard from '../components/CategoryCard';
-
-const Home = () => {
-  return (
-    <div>
-      <Header />
-      <main>
-        <section>
-          <h1>Welcome to Furniture Store</h1>
-          <p>Explore our collection of modern furniture</p>
-          <button>Explore Now</button>
-        </section>
-        <section>
-          <h2>Featured Section</h2>
-          <img src='featured-section.jpg' alt='Featured Section' />
-        </section>
-        <section>
-          <h2>Recommendations</h2>
-          <div>
-            <img src='recommendation-section-1.jpg' alt='Recommendation 1' />
-            <img src='recommendation-section-2.jpg' alt='Recommendation 2' />
-            <img src='recommendation-section-3.jpg' alt='Recommendation 3' />
-            <img src='recommendation-section-4.jpg' alt='Recommendation 4' />
-          </div>
-        </section>
-        <section>
-          <h2>Categories</h2>
-          <div>
-            <CategoryCard image='category-sofas.jpg' title='Sofas' />
-            <CategoryCard image='category-beds.jpg' title='Beds' />
-            <CategoryCard image='category-almirahs.jpg' title='Almirahs' />
-            <CategoryCard image='category-chairs.jpg' title='Chairs' />
-            <CategoryCard image='category-wardrobes.jpg' title='Wardrobes' />
-            <CategoryCard image='category-tables.jpg' title='Tables' />
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
-  );
-};
-
-export default Home;" > src/containers/Home.js
-
-echo "import React from 'react';
-import './About.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-
-const About = () => {
-  return (
-    <div>
-      <Header />
-      <main>
-        <section>
-          <h1>About Us</h1>
-          <p>We are a furniture store with a passion for modern design</p>
-        </section>
-      </main>
-      <Footer />
-    </div>
-  );
-};
-
-export default About;" > src/containers/About.js
-
-echo "import React from 'react';
-import './Contact.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-
-const Contact = () => {
-  return (
-    <div>
-      <Header />
-      <main>
-        <section>
-          <h1>Contact Us</h1>
-          <p>Get in touch with us for any queries or feedback</p>
-        </section>
-      </main>
-      <Footer />
-    </div>
-  );
-};
-
-export default Contact;" > src/containers/Contact.js
-
-echo "import React from 'react';
-import './Product.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-
-const Product = () => {
-  return (
-    <div>
-      <Header />
-      <main>
-        <section>
-          <h1>Product Page</h1>
-          <p>This is a product page</p>
-        </section>
-      </main>
-      <Footer />
-    </div>
-  );
-};
-
-export default Product;" > src/containers/Product.js
-
-# Create React pages
-echo "import React from 'react';
-import './index.css';
-import Home from '../containers/Home';
-
-const HomePage = () => {
-  return (
-    <Home />
-  );
-};
-
-export default HomePage;" > src/pages/Home/index.js
-
-echo "import React from 'react';
-import './index.css';
-import About from '../containers/About';
-
-const AboutPage = () => {
-  return (
-    <About />
-  );
-};
-
-export default AboutPage;" > src/pages/About/index.js
-
-echo "import React from 'react';
-import './index.css';
-import Contact from '../containers/Contact';
-
-const ContactPage = () => {
-  return (
-    <Contact />
-  );
-};
-
-export default ContactPage;" > src/pages/Contact/index.js
-
-echo "import React from 'react';
-import './index.css';
-import Product from '../containers/Product';
-
-const ProductPage = () => {
-  return (
-    <Product />
-  );
-};
-
-export default ProductPage;" > src/pages/Product/index.js
-
-echo "import React from 'react';
-import './index.css';
-
-const NotFoundPage = () => {
-  return (
-    <div>
-      <h1>404 Not Found</h1>
-    </div>
-  );
-};
-
-export default NotFoundPage;" > src/pages/NotFound/index.js
-
-# Create React routes
-echo "import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from '../pages/Home';
-import About from '../pages/About';
-import Contact from '../pages/Contact';
-import Product from '../pages/Product';
-import NotFound from '../pages/NotFound';
-
-const AppRoutes = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/product' element={<Product />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
-  );
-};
-
-export default AppRoutes;" > src/routes/AppRoutes.js
-
-# Create Node.js API
-echo "const express = require('express');
-const app = express();
-
-app.get('/api/products', (req, res) => {
-  res.json([
-    { id: 1, name: 'Product 1', price: 10.99 },
-    { id: 2, name: 'Product 2', price: 9.99 },
-    { id: 3, name: 'Product 3', price: 12.99 },
-  ]);
-});
-
-app.listen(3001, () => {
-  console.log('Server listening on port 3001');
-});" > src/utils/api.js
-
-# Create constants file
-echo "export const API_URL = 'http://localhost:3001/api';
-export const PRODUCT_CATEGORIES = [
-  { id: 1, name: 'Sofas' },
-  { id: 2, name: 'Beds' },
-  { id: 3, name: 'Almirahs' },
-  { id: 4, name: 'Chairs' },
-  { id: 5, name: 'Wardrobes' },
-  { id: 6, name: 'Tables' },
-];" > src/utils/constants.js
-
-# Create index file for utils
-echo "export * from './api';
-export * from './constants';" > src/utils/index.js
-
-# Create App.css file
-echo ".App {
-  text-align: center;
+# global.css
+echo "body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+* {
+  box-sizing: border-box;
+}" > src/assets/styles/global.css
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+# homepage.css
+echo ".hero-section {
+  background-image: url('../images/background/sofa.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.category-section {
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}" > src/App.css
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.recommendation-section {
+  padding: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.testimonial-section {
+  padding: 20px;
+}" > src/assets/styles/pages/homepage.css
 ```
