@@ -1,220 +1,244 @@
 ```bash
-mkdir public/images public/images/background public/images/products public/images/textures src/assets src/assets/styles src/components src/components/common src/components/homepage src/components/productpage src/components/categorypage src/components/aboutpage src/components/contactpage src/pages
-touch public/images/background/sofa.jpg public/images/products/sofa1.jpg public/images/products/sofa2.jpg public/images/products/bed1.jpg public/images/products/bed2.jpg public/images/products/almirah1.jpg public/images/products/almirah2.jpg public/images/textures/wooden.jpg src/assets/styles/global.css src/assets/styles/homepage.css src/assets/styles/productpage.css src/assets/styles/categorypage.css src/assets/styles/aboutpage.css src/assets/styles/contactpage.css src/components/common/Header.js src/components/common/Footer.js src/components/common/Navigation.js src/components/common/ProductCard.js src/components/homepage/HeroSection.js src/components/homepage/CategoryDisplay.js src/components/homepage/RecommendationSection.js src/components/productpage/ProductDetails.js src/components/productpage/ProductImage.js src/components/categorypage/CategoryList.js src/components/categorypage/CategoryCard.js src/components/aboutpage/AboutSection.js src/components/contactpage/ContactForm.js src/pages/HomePage.js src/pages/ProductPage.js src/pages/CategoryPage.js src/pages/AboutPage.js src/pages/ContactPage.js src/routes.js
+mkdir public/images public/images/background public/images/products src/components src/components/common src/components/homepage src/components/pages src/css
+touch public/images/background/sofa.jpg public/images/background/wooden-texture.jpg public/images/products/sofa1.jpg public/images/products/sofa2.jpg public/images/products/bed1.jpg public/images/products/bed2.jpg public/images/products/almirah1.jpg public/images/products/almirah2.jpg public/images/products/chair1.jpg public/images/products/chair2.jpg public/images/products/wardrobe1.jpg public/images/products/wardrobe2.jpg public/images/products/table1.jpg public/images/products/table2.jpg
+touch src/components/common/Button.js src/components/common/Card.js src/components/common/Footer.js src/components/common/Header.js src/components/common/Icon.js src/components/common/Layout.js src/components/common/Navbar.js
+touch src/components/homepage/CategoryDisplay.js src/components/homepage/Headline.js src/components/homepage/Image.js src/components/homepage/Recommendation.js src/components/homepage/SubHeadline.js
+touch src/components/pages/About.js src/components/pages/Contact.js src/components/pages/Home.js src/components/pages/Products.js
+touch src/css/about.css src/css/contact.css src/css/home.css src/css/products.css src/css/common.css
 ```
 ```bash
 #!/bin/bash
 
-# Create CSS files
-echo "/* global.css */" > src/assets/styles/global.css
+# Homepage Components
+
+echo "import React from 'react';
+import './home.css';
+
+function Headline() {
+  return (
+    <h1>Elevate Your Space with Minimalist Wooden Furniture</h1>
+  );
+}
+
+export default Headline;" > src/components/homepage/Headline.js
+
+echo "import React from 'react';
+import './home.css';
+
+function SubHeadline() {
+  return (
+    <h2>Discover our curated collection of handcrafted wooden furniture for the modern home</h2>
+  );
+}
+
+export default SubHeadline;" > src/components/homepage/SubHeadline.js
+
+echo "import React from 'react';
+import './home.css';
+
+function CallToAction() {
+  return (
+    <button>Explore Our Collection</button>
+  );
+}
+
+export default CallToAction;" > src/components/common/Button.js
+
+echo "import React from 'react';
+import './home.css';
+
+function Image() {
+  return (
+    <div>
+      <img src='../../public/images/background/sofa.jpg' alt='Sofa' />
+      <div className='recommendation'>
+        <img src='../../public/images/products/sofa1.jpg' alt='Sofa 1' />
+        <img src='../../public/images/products/sofa2.jpg' alt='Sofa 2' />
+        <img src='../../public/images/products/bed1.jpg' alt='Bed 1' />
+        <img src='../../public/images/products/bed2.jpg' alt='Bed 2' />
+        <img src='../../public/images/products/almirah1.jpg' alt='Almirah 1' />
+        <img src='../../public/images/products/almirah2.jpg' alt='Almirah 2' />
+      </div>
+      <img src='../../public/images/background/wooden-texture.jpg' alt='Wooden Texture' />
+    </div>
+  );
+}
+
+export default Image;" > src/components/homepage/Image.js
+
+echo "import React from 'react';
+import './home.css';
+
+function CategoryDisplay() {
+  return (
+    <div className='category-display'>
+      <div className='category'>
+        <img src='../../public/images/products/sofa1.jpg' alt='Sofa' />
+        <h3>Sofa</h3>
+      </div>
+      <div className='category'>
+        <img src='../../public/images/products/bed1.jpg' alt='Bed' />
+        <h3>Bed</h3>
+      </div>
+      <div className='category'>
+        <img src='../../public/images/products/almirah1.jpg' alt='Almirah' />
+        <h3>Almirah</h3>
+      </div>
+      <div className='category'>
+        <img src='../../public/images/products/chair1.jpg' alt='Chair' />
+        <h3>Chair</h3>
+      </div>
+      <div className='category'>
+        <img src='../../public/images/products/wardrobe1.jpg' alt='Wardrobe' />
+        <h3>Wardrobe</h3>
+      </div>
+      <div className='category'>
+        <img src='../../public/images/products/table1.jpg' alt='Table' />
+        <h3>Table</h3>
+      </div>
+    </div>
+  );
+}
+
+export default CategoryDisplay;" > src/components/homepage/CategoryDisplay.js
+
+echo "import React from 'react';
+import './home.css';
+
+function Footer() {
+  return (
+    <div className='footer'>
+      <div className='links'>
+        <a href='#'>Privacy Policy</a>
+        <a href='#'>Terms of Service</a>
+        <a href='#'>Contact Us</a>
+      </div>
+      <div className='social-media'>
+        <img src='../../public/images/social-media/facebook.png' alt='Facebook' />
+        <img src='../../public/images/social-media/instagram.png' alt='Instagram' />
+        <img src='../../public/images/social-media/twitter.png' alt='Twitter' />
+      </div>
+    </div>
+  );
+}
+
+export default Footer;" > src/components/common/Footer.js
+
+echo "import React from 'react';
+import Headline from './Headline';
+import SubHeadline from './SubHeadline';
+import CallToAction from '../common/Button';
+import Image from './Image';
+import CategoryDisplay from './CategoryDisplay';
+import Footer from '../common/Footer';
+import './home.css';
+
+function Home() {
+  return (
+    <div>
+      <Headline />
+      <SubHeadline />
+      <CallToAction />
+      <Image />
+      <CategoryDisplay />
+      <Footer />
+    </div>
+  );
+}
+
+export default Home;" > src/components/pages/Home.js
+
 echo "body {
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  font-size: 36px;
+  color: #969696;
+}
+
+h2 {
+  font-size: 24px;
+  color: #969696;
+}
+
+button {
   background-color: #F5F5F5;
-}" >> src/assets/styles/global.css
+  color: #969696;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
 
-echo "/* homepage.css */" > src/assets/styles/homepage.css
-echo ".hero-section {
-  background-image: url('../images/background/sofa.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+button:hover {
+  background-color: #969696;
+  color: #F5F5F5;
+}
+
+.recommendation {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+}
+
+.recommendation img {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+.category-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category {
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  color: #FFFFFF;
-}" >> src/assets/styles/homepage.css
-echo ".category-display {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}" >> src/assets/styles/homepage.css
-echo ".category-card {
-  background-color: #FFFFFF;
+}
+
+.category img {
+  width: 100px;
+  height: 100px;
+}
+
+.category h3 {
+  font-size: 18px;
+  color: #969696;
+}
+
+.footer {
+  background-color: #F5F5F5;
   padding: 20px;
-  border: 1px solid #969696;
-}" >> src/assets/styles/homepage.css
-echo ".category-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}" >> src/assets/styles/homepage.css
-echo ".recommendation-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}" >> src/assets/styles/homepage.css
-echo ".product-card {
-  background-color: #FFFFFF;
-  padding: 20px;
-  border: 1px solid #969696;
-}" >> src/assets/styles/homepage.css
-echo ".product-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}" >> src/assets/styles/homepage.css
+  text-align: center;
+}
 
-echo "/* Header.js */" > src/components/common/Header.js
-echo "import React from 'react';
-import './Header.css';
+.links {
+  margin-bottom: 20px;
+}
 
-const Header = () => {
-  return (
-    <header>
-      <nav>
-        <ul>
-          <li><a href='#'>Home</a></li>
-          <li><a href='#'>About</a></li>
-          <li><a href='#'>Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-  );
-};
+.links a {
+  text-decoration: none;
+  color: #969696;
+  margin: 10px;
+}
 
-export default Header;" >> src/components/common/Header.js
+.social-media {
+  margin-top: 20px;
+}
 
-echo "/* Footer.js */" > src/components/common/Footer.js
-echo "import React from 'react';
-import './Footer.css';
-
-const Footer = () => {
-  return (
-    <footer>
-      <ul>
-        <li><a href='#'>Privacy Policy</a></li>
-        <li><a href='#'>Terms of Service</a></li>
-        <li><a href='#'>Contact Us</a></li>
-      </ul>
-      <p>&copy; 2023 Furniture Website</p>
-    </footer>
-  );
-};
-
-export default Footer;" >> src/components/common/Footer.js
-
-echo "/* Navigation.js */" > src/components/common/Navigation.js
-echo "import React from 'react';
-import './Navigation.css';
-
-const Navigation = () => {
-  return (
-    <nav>
-      <ul>
-        <li><a href='#'>Sofa</a></li>
-        <li><a href='#'>Bed</a></li>
-        <li><a href='#'>Almirah</a></li>
-        <li><a href='#'>Chair</a></li>
-        <li><a href='#'>Wardrobe</a></li>
-        <li><a href='#'>Table</a></li>
-      </ul>
-    </nav>
-  );
-};
-
-export default Navigation;" >> src/components/common/Navigation.js
-
-echo "/* ProductCard.js */" > src/components/common/ProductCard.js
-echo "import React from 'react';
-import './ProductCard.css';
-
-const ProductCard = ({ product }) => {
-  return (
-    <div className='product-card'>
-      <img src={product.image} alt={product.name} />
-      <h2>{product.name}</h2>
-      <p>{product.description}</p>
-      <p>&#8377; {product.price}</p>
-    </div>
-  );
-};
-
-export default ProductCard;" >> src/components/common/ProductCard.js
-
-echo "/* HeroSection.js */" > src/components/homepage/HeroSection.js
-echo "import React from 'react';
-import './HeroSection.css';
-
-const HeroSection = () => {
-  return (
-    <section className='hero-section'>
-      <h1>Elevate Your Space with Minimalist Wooden Furniture</h1>
-      <p>Discover our curated collection of handcrafted wooden furniture for the modern home</p>
-      <button>Explore Our Collection</button>
-    </section>
-  );
-};
-
-export default HeroSection;" >> src/components/homepage/HeroSection.js
-
-echo "/* CategoryDisplay.js */" > src/components/homepage/CategoryDisplay.js
-echo "import React from 'react';
-import './CategoryDisplay.css';
-import CategoryCard from '../common/CategoryCard';
-
-const CategoryDisplay = () => {
-  return (
-    <section className='category-display'>
-      <h2>Categories</h2>
-      <div className='category-cards'>
-        <CategoryCard image='sofa.jpg' name='Sofa' />
-        <CategoryCard image='bed.jpg' name='Bed' />
-        <CategoryCard image='almirah.jpg' name='Almirah' />
-        <CategoryCard image='chair.jpg' name='Chair' />
-        <CategoryCard image='wardrobe.jpg' name='Wardrobe' />
-        <CategoryCard image='table.jpg' name='Table' />
-      </div>
-    </section>
-  );
-};
-
-export default CategoryDisplay;" >> src/components/homepage/CategoryDisplay.js
-
-echo "/* RecommendationSection.js */" > src/components/homepage/RecommendationSection.js
-echo "import React from 'react';
-import './RecommendationSection.css';
-import ProductCard from '../common/ProductCard';
-
-const RecommendationSection = () => {
-  return (
-    <section className='recommendation-section'>
-      <h2>Recommended Products</h2>
-      <div className='product-cards'>
-        <ProductCard image='sofa1.jpg' name='Sofa 1' description='This is a sofa' price='10000' />
-        <ProductCard image='sofa2.jpg' name='Sofa 2' description='This is a sofa' price='15000' />
-        <ProductCard image='bed1.jpg' name='Bed 1' description='This is a bed' price='8000' />
-        <ProductCard image='bed2.jpg' name='Bed 2' description='This is a bed' price='12000' />
-        <ProductCard image='almirah1.jpg' name='Almirah 1' description='This is an almirah' price='6000' />
-        <ProductCard image='almirah2.jpg' name='Almirah 2' description='This is an almirah' price='10000' />
-      </div>
-    </section>
-  );
-};
-
-export default RecommendationSection;" >> src/components/homepage/RecommendationSection.js
-
-echo "/* HomePage.js */" > src/pages/HomePage.js
-echo "import React from 'react';
-import './HomePage.css';
-import Header from '../components/common/Header';
-import HeroSection from '../components/homepage/HeroSection';
-import CategoryDisplay from '../components/homepage/CategoryDisplay';
-import RecommendationSection from '../components/homepage/RecommendationSection';
-import Footer from '../components/common/Footer';
-
-const HomePage = () => {
-  return (
-    <div>
-      <Header />
-      <HeroSection />
-      <CategoryDisplay />
-      <RecommendationSection />
-      <Footer />
-    </div>
-  );
-};
-
-export default HomePage;" >> src/pages/HomePage.js
+.social-media img {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+}" > src/css/home.css
 ```
+
