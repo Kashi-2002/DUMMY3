@@ -1,0 +1,41 @@
+/* homepage.css */
+.hero-section {
+  background-image: url('../images/background/sofa.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+}
+.category-display {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.category-card {
+  background-color: #FFFFFF;
+  padding: 20px;
+  border: 1px solid #969696;
+}
+.category-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+.recommendation-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.product-card {
+  background-color: #FFFFFF;
+  padding: 20px;
+  border: 1px solid #969696;
+}
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
