@@ -1,0 +1,46 @@
+.hero-section {
+  background-image: url('../images/background/sofa.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.category-section {
+  padding: 20px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.category-card {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.recommendation-section {
+  padding: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.testimonial-section {
+  padding: 20px;
+}
